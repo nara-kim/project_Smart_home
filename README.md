@@ -3,8 +3,14 @@
     -> 이를 통해 모바일에서 스마트홈 제어 가능  
     -> 센서를 통해 측정된 데이터(온습도 및 조도)를 가공 가능  
 
+### UCC
+https://youtu.be/36CYu3BqFho
+
+### 기술스택
+![Alt text](/img/기술스택.JPG)
+
 ### back_end에서 가상환경에 접속 
-        
+
     back_end 폴더를 spring에서 import 
     File -> import -> General -> Existiong Projects into Workspace -> 
     Select root directory -> back_end 폴더 등록
@@ -28,4 +34,5 @@
     src
         components
             main.vue 확인
-    
+
+
