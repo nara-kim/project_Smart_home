@@ -1,36 +1,7 @@
 <template>
    <div>
-    <!-- <b-form inline>
-      <div>
-      <label class="sr-only" for="inlineFormInputName2">Name</label>
-      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" v-model="episodes"  />
-      <b-button variant="primary" v-on:click="login">콘솔 확인</b-button>
-      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" v-model="result"  />
-      </div>
-    </b-form>
-          <br>
-    <b-form inline>
-      <div>
-      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" v-model="x"  />
-      <b-button variant="primary" v-on:click="post">콘솔 확인</b-button>
-      <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" v-model="y"  />
-      </div>
-    </b-form> -->
-
-      <!-- <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" v-model="x"  />
-      <b-button variant="primary" v-on:click="post">123123123인</b-button>
-
-      <input type="text" class="mb-sm-2" id="email" name="pid" placeholder="Enter id" value="" v-model="user.id"><br>
-			<input type="password" class="mb-sm-2" placeholder="Enter password" value=""  v-model="user.pw"><br>
-			<input type="password" class="mb-sm-2" placeholder="Enter password" value=""  v-model="user.pw_check"><br>
-			<input type="text" class="mb-sm-2" maxlength="20" placeholder="Enter name" value="" v-model="user.name"><br>
-    
-    <b-button variant="primary" v-on:click="signUp">회원가입</b-button>
-  </div> -->
   <div class="main">
     <h1>Sign Up</h1>
-    <!-- <div class="d-flex justify-content-center">
-		</div> -->
       <fieldset>
         <div class='kickass_field'>
           <input type="text" name="pid" value="" v-model="user.name" maxlength='30' required='required'>
@@ -68,7 +39,6 @@
 </template>
 <script>
 import common from '../http_common'
-// import axios from 'axios'
 export default {
   name: 'Sin',
   data () {
@@ -202,20 +172,6 @@ body .kickass_field lable span {
   transition: opacity .5s .0s;
   margin-left: 2px;
 }
-/* body .kickass_field lable:after {
-  width: 4px;
-  content: '';
-  height: 8px;
-  border-bottom: 2px solid #f65252;
-  border-right: 2px solid #f65252;
-  -webkit-transform: translateX(-40px) rotate(45deg);
-          transform: translateX(-40px) rotate(45deg);
-  position: absolute;
-  left: 120%;
-  top: 25px;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-} */
 body .kickass_field input {
   border: none;
   color: #6E738A;

@@ -1,8 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <Servo.h>
  
-const char* ssid = "iptime_204";
-const char* password = "hello204";
+const char* ssid = "iptime_204";	//wifi ID
+const char* password = "hello204";	//wifi 비번
 
 //Servo myservo;
 //int sw = 5; //스위치
@@ -37,15 +37,11 @@ void setup() {
   digitalWrite(led_R, LOW);
   digitalWrite(led_G, LOW);
   digitalWrite(led_B, LOW);
-
-//  blind.attach(servo)
-//  myservo.attach(12); //D6번핀
-//  PinMode(sw, INPUT_PULLUP);
   blind.attach(servo);
   blind.write(180);
 
  
-  // Connect to WiFi network
+  //wifi 네트워크와 연결
   Serial.println();
   Serial.println();
   Serial.print("Connecting to ");
@@ -60,11 +56,11 @@ void setup() {
   Serial.println("");
   Serial.println("WiFi connected");
  
-  // Start the server
+  //서버 시작
   server.begin();
   Serial.println("Server started");
  
-  // Print the IP address
+  //IP주소 출력
   Serial.print("Use this URL to connect: ");
   Serial.print("http://");
   Serial.print(WiFi.localIP());
@@ -73,45 +69,48 @@ void setup() {
 }
  
 void loop() {
-  // Check if a client has connected
+  //클라이언트와 연결되어있는지 확인
   WiFiClient client = server.available();
   if (!client) {
     return;
   }
  
-  // Wait until the client sends some data
-  Serial.println("new client");
-  while(!client.available()){
+  //클라이언트가 데이터를 보내기 전까지 기다림
+  Serial.println("new client");	//클라이언트가 접근하면 출력
+  while(!client.available()){	//클라이언트가 접근했을때 while문 빠져나옴
     delay(1);
   }
  
-  // Read the first line of the request
+  //요청을 읽어서 request변수에 저장함
   String request = client.readStringUntil('\r');
   Serial.println(request);
   client.flush();
  
-  // Match the request
+  //요청에 맞는 주소에 따라 실행시키기
  
   int value = LOW;
   if (request.indexOf("/post/air") != -1)  {
     if(air==0){
-      digitalWrite(ledPin, HIGH);
+      digitalWrite(ledPin, HIGH);	//0이면 에어컨 켜짐
       air = 1;
     }else{
-      digitalWrite(ledPin, LOW);
+      digitalWrite(ledPin, LOW);	//0이 아니면 에어컨 꺼짐
       air = 0;
     }
   }
+  
+  //빨간전등
   if (request.indexOf("/post/r") != -1)  {
     if(r){
-      digitalWrite(led_R, LOW);
+      digitalWrite(led_R, LOW);	//빨간불꺼짐
       r = false;
     }else{
-      digitalWrite(led_R, HIGH);
+      digitalWrite(led_R, HIGH);	//빨간불켜짐
       r = true;
     }
   }
   
+  //초록전등
   if (request.indexOf("/post/g") != -1)  {
     if(g){
       digitalWrite(led_G, LOW);
@@ -122,6 +121,7 @@ void loop() {
     }
   }
 
+  //파란전등
   if (request.indexOf("/post/b") != -1)  {
     if(b){
       digitalWrite(led_B, LOW);
@@ -132,6 +132,7 @@ void loop() {
     }
   }
 
+  //전등
   if (request.indexOf("/post/led") != -1)  {
     if(led){
       digitalWrite(led_R, LOW);
@@ -146,13 +147,14 @@ void loop() {
     }
   }
 
+  //블라인드
   if (request.indexOf("/post/5") != -1)  {
     if(flag==0){
-      blind.write(180);
+      blind.write(180);	//블라인드 닫힘
       flag = 1;
     }
     else{
-      blind.write(80);
+      blind.write(80);	//블라인드 켜짐
       flag = 0;
     }
   }

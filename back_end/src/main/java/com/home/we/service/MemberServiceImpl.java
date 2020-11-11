@@ -15,7 +15,7 @@ public class MemberServiceImpl implements IMemberService {
 	@Override
 	public boolean addMem(String id, String pw, String name, String email) {
 		// TODO Auto-generated method stub
-		System.out.println("service??");
+		//Dao로 보낸다(Repository)
 		return man.addMem(id, pw, name, email);
 	}
 

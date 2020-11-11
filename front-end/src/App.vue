@@ -3,48 +3,14 @@
     <Slick />
   </div>
   <div v-else id="app">
-    <!-- <Toolbar/> -->
-    <!-- <Drawer/> -->
-    
-    <!-- <div v-if = "width<600">
-      <div class="side_bar h4 ml-4 mt-2" v-on:click="openNav()">
-        <span class="openmenu" v-on:click="openNav()"><b-icon icon="grid-fill" class="est"></b-icon></span>
-      </div>
-      <div id="mysidenav" class="sidenav">
-        <a href="#" class="closebtn" v-on:click="closeNav()">x</a>
-        <router-link to="/">Home</router-link>
-        <router-link to="/Weather">Weather</router-link> -->
-        <!-- <router-link to="/Aircon">Airconditioner</router-link>
-        <router-link to="/Blind">Blind</router-link>
-        <router-link to="/Myhome">Myhome</router-link> -->
-        <!-- <span v-if = "idid === ''">
-              <router-link to="/login">Login</router-link>
-              <router-link to="/signup">Signup</router-link>
-            </span>
-            <span  v-else>
-              <div class="side">{{idid}}</div>
-              <div class="side" to="/" v-on:click="logout()">Logout</div>
-            </span>
-      </div>
-    </div> -->
     <nav class="main-navigation">
         <div class="navbar-header animated fadeInUp">
-            <!-- <a class="navbar-brand" href="#">Smart Home</a> -->
             <img src="./img/logo2.png">
         </div>
         <ul class="nav-list">
             <li class="nav-list-item nav">
                 <router-link to="/" class="nav_list">Home</router-link>
             </li>
-            <!-- <li class="nav-list-item nav">
-                <router-link to="/" class="nav_list">Control</router-link>
-            </li> -->
-            <!-- <li class="nav-list-item">
-                <a href="/login" class="nav-link">login</a>
-            </li>
-            <li class="nav-list-item">
-                <a href="/signup" class="nav-link">Signup</a>
-            </li> -->
             <li class="nav-list-item nav" v-if = "idid === ''">
               <router-link to="/login" class="nav_list">Login</router-link>
             </li>
@@ -82,9 +48,6 @@
 </template>
 
 <script>
-// import Toolbar from "@/components/Toolbar";
-// import Drawer from "@/components/Drawer";
-// import Footer from "@/components/Footer";
 import Slick from "@/components/Slick";
 export default {
   data () {
@@ -97,11 +60,7 @@ export default {
     }
   },
   components: {
-    // eslint-disable-next-line vue/no-unused-components
     Slick,
-    // Footer,
-    // Toolbar,
-    // Drawer,
   },
   methods:{
     logout(){
